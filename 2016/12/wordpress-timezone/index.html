@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="SUGELOG">
 <meta property="og:description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
 その日本とバンクーバーは時差が17時間です。バンクーバ">
-<meta property="og:updated_time" content="2016-12-22T18:17:00.140Z">
+<meta property="og:updated_time" content="2016-12-22T18:56:40.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wordpressの投稿時間をクライアント時間で表示する方法">
 <meta name="twitter:description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
@@ -118,7 +118,7 @@ ga('send', 'pageview');
     
     <div class="article-meta">
       <a href="/2016/12/wordpress-timezone/" class="article-date">
-  <time datetime="2016-12-20T15:22:44.000Z" itemprop="datePublished">2016.12.21</time>
+  <time datetime="2016-12-21T08:22:44.000Z" itemprop="datePublished">2016.12.21</time>
 </a>
       
   <div class="article-category">
@@ -145,16 +145,16 @@ ga('send', 'pageview');
 <p>設定の変更に約3分かかっているので、GMT時間で約3分の誤差がありますが、Wordpressのタイムゾーンを変更しても、GMT時間は変わらないということがわかりました。<br>このGMT時間を使っていきます。</p>
 <h2 id="WordpressのGMT時間を取得"><a href="#WordpressのGMT時間を取得" class="headerlink" title="WordpressのGMT時間を取得"></a>WordpressのGMT時間を取得</h2><p>GMT時間はWordpress関数の<code>get_post_time( &#39;U&#39;, true )</code>を使って取得することができます。<br>第一引数に<code>U</code>を指定すると、Unixタイムスタンプ（1970年1月1日からの経過秒数）で取得することができます。JavaScriptを使って、クライアントのタイムゾーンに変更するときに、Unixタイムスタンプを使うので、Unixタイムスタンプで取得しています。第二引数に<code>true</code>を指定することで、GMT時間を取得できます。</p>
 <p>取得した値をJavaScriptが使用するために、今回は<code>time</code>タグに<code>gmttimestamp</code>属性を追加して、そこにいれています。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;time id=&quot;pdate&quot; gmttimestamp=&quot;&lt;?php esc_attr( get_post_time( &apos;U&apos;, true )); ?&gt;&quot;&gt;&lt;?php the_date(); ?&gt;&lt;/time&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">id</span>=<span class="string">"pdate"</span> <span class="attr">gmttimestamp</span>=<span class="string">"&lt;?php esc_attr( get_post_time( 'U', true )); ?&gt;"</span>&gt;</span>&lt;?php the_date(); ?&gt;<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>HTMLでの出力は以下のようになります。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;time id=&quot;pdate&quot; gmttimestamp=&quot;1482310000&quot;&gt;2016年12月21日&lt;/time&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">id</span>=<span class="string">"pdate"</span> <span class="attr">gmttimestamp</span>=<span class="string">"1482310000"</span>&gt;</span>2016年12月21日<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_time" target="_blank" rel="external">テンプレートタグ/get the time - WordPress Codex 日本語版</a></p>
 </blockquote>
 <h2 id="クライアントのタイムゾーンで投稿日時を表示するJavaScript"><a href="#クライアントのタイムゾーンで投稿日時を表示するJavaScript" class="headerlink" title="クライアントのタイムゾーンで投稿日時を表示するJavaScript"></a>クライアントのタイムゾーンで投稿日時を表示するJavaScript</h2><p>WordpressのGMT時間を取得できたので、次はクライアント側でJavaScriptを使ってタイムゾーンを変更します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  (function($) &#123;</div><div class="line">    var gmtDate = $(&apos;#pdate&apos;).attr(&apos;gmttimestamp&apos;); //sec</div><div class="line">    var clientDate = new Date(gmtDate*1000);</div><div class="line">    //replace</div><div class="line">    $(&apos;#pdate&apos;).text(clientDate);</div><div class="line">  &#125;)(jQuery);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">  (function($) &#123;</div><div class="line">    var gmtDate = $('#pdate').attr('gmttimestamp'); //sec</div><div class="line">    var clientDate = new Date(gmtDate*1000);</div><div class="line">    //replace</div><div class="line">    $('#pdate').text(clientDate);</div><div class="line">  &#125;)(jQuery);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Wordpressのタイムゾーンが[バンクーバー]で投稿した記事を日本時間に設定してあるパソコンで見た場合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;time id=&quot;pdate&quot; gmttimestamp=&quot;1482310000&quot;&gt;Wed Dec 21 2016 17:46:40 GMT+0900 (Japan Standard Time)&lt;/time&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">id</span>=<span class="string">"pdate"</span> <span class="attr">gmttimestamp</span>=<span class="string">"1482310000"</span>&gt;</span>Wed Dec 21 2016 17:46:40 GMT+0900 (Japan Standard Time)<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>WordpressのUnixタイムスタンプは<strong>秒</strong>で返すので、JavaScriptのDate関数が読める<strong>ミリ秒</strong>に変換しています。また、Date関数は、自動でクライアントのタイムゾーンに変換してくれるので、たったこれだけで大丈夫です！便利！今回は！<br>ただ、Date関数に関して調べつくせていないので、もしかするとブラウザによって挙動が変わるかも…未検証です。すみません。</p>
 <p>今回は、Date関数で取得した値を置き換えているだけですが、それでは余分な情報もでてくるので、適宜表示を調整してください！</p>
 <p>以上です。<br>AdventCalendar用のブログだと、日本時間のクライアントとバンクーバー時間のクライアントで日付が違うと紛らわしくなるし、ブログで1日の誤差は全く気にならないことがほどんどなので、使う場面はそうそうないかもしれません。<br>それでも、クライアントごとに時間を変えたいという方は、試してみてください。</p>
