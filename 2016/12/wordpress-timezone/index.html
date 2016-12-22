@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="SUGELOG">
 <meta property="og:description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
 その日本とバンクーバーは時差が17時間です。バンクーバ">
-<meta property="og:updated_time" content="2016-12-22T18:56:40.261Z">
+<meta property="og:updated_time" content="2016-12-22T19:14:00.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wordpressの投稿時間をクライアント時間で表示する方法">
 <meta name="twitter:description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
@@ -67,9 +67,9 @@ ga('send', 'pageview');
         </nav>
         <nav id="sub-nav">
           
-            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
           
-          <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+          <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
         </nav>
         <div id="search-form-wrap">
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://suige.github.io"></form>
@@ -152,7 +152,7 @@ ga('send', 'pageview');
 <p><a href="https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_time" target="_blank" rel="external">テンプレートタグ/get the time - WordPress Codex 日本語版</a></p>
 </blockquote>
 <h2 id="クライアントのタイムゾーンで投稿日時を表示するJavaScript"><a href="#クライアントのタイムゾーンで投稿日時を表示するJavaScript" class="headerlink" title="クライアントのタイムゾーンで投稿日時を表示するJavaScript"></a>クライアントのタイムゾーンで投稿日時を表示するJavaScript</h2><p>WordpressのGMT時間を取得できたので、次はクライアント側でJavaScriptを使ってタイムゾーンを変更します。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">  (function($) &#123;</div><div class="line">    var gmtDate = $('#pdate').attr('gmttimestamp'); //sec</div><div class="line">    var clientDate = new Date(gmtDate*1000);</div><div class="line">    //replace</div><div class="line">    $('#pdate').text(clientDate);</div><div class="line">  &#125;)(jQuery);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> gmtDate = $(<span class="string">'#pdate'</span>).attr(<span class="string">'gmttimestamp'</span>); <span class="comment">//sec</span></div><div class="line">  <span class="keyword">var</span> clientDate = <span class="keyword">new</span> <span class="built_in">Date</span>(gmtDate*<span class="number">1000</span>);</div><div class="line">  <span class="comment">//replace</span></div><div class="line">  $(<span class="string">'#pdate'</span>).text(clientDate);</div><div class="line">&#125;)(jQuery);</div></pre></td></tr></table></figure>
 <p>Wordpressのタイムゾーンが[バンクーバー]で投稿した記事を日本時間に設定してあるパソコンで見た場合</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">id</span>=<span class="string">"pdate"</span> <span class="attr">gmttimestamp</span>=<span class="string">"1482310000"</span>&gt;</span>Wed Dec 21 2016 17:46:40 GMT+0900 (Japan Standard Time)<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>WordpressのUnixタイムスタンプは<strong>秒</strong>で返すので、JavaScriptのDate関数が読める<strong>ミリ秒</strong>に変換しています。また、Date関数は、自動でクライアントのタイムゾーンに変換してくれるので、たったこれだけで大丈夫です！便利！今回は！<br>ただ、Date関数に関して調べつくせていないので、もしかするとブラウザによって挙動が変わるかも…未検証です。すみません。</p>
@@ -163,7 +163,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://suige.github.io/2016/12/wordpress-timezone/" data-id="cix06qr6v0004z4ndor6b7sdf" class="article-share-link">Share</a>
+      <a data-url="https://suige.github.io/2016/12/wordpress-timezone/" data-id="cix06qr6v0004z4ndor6b7sdf" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -174,7 +174,7 @@ ga('send', 'pageview');
   
   
     <a href="/2016/11/js-function/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">奇妙なJavaScriptの関数入門</div>
     </a>
   
@@ -189,7 +189,7 @@ ga('send', 'pageview');
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/technology/">technology</a></li></ul>
     </div>
@@ -214,7 +214,7 @@ ga('send', 'pageview');
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -242,7 +242,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 <a href="http://suige.plthh-project.com/" target="_blank">SUIGE</a> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2016 <a href="http://suige.plthh-project.com/" target="_blank">SUIGE</a> Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
