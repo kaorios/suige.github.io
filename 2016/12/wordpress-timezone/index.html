@@ -5,19 +5,19 @@
   
   <title>Wordpressの投稿時間をクライアント時間で表示する方法 | SUGELOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Frog Advent Calendar 2016 21日目です。バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
-その日本とバンクーバーは時差が17時間です。バンクーバーが2">
+  <meta name="description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
+その日本とバンクーバーは時差が17時間です。バンクーバ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wordpressの投稿時間をクライアント時間で表示する方法">
 <meta property="og:url" content="https://suige.github.io/2016/12/wordpress-timezone/index.html">
 <meta property="og:site_name" content="SUGELOG">
-<meta property="og:description" content="Frog Advent Calendar 2016 21日目です。バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
-その日本とバンクーバーは時差が17時間です。バンクーバーが2">
-<meta property="og:updated_time" content="2016-12-22T18:10:15.089Z">
+<meta property="og:description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
+その日本とバンクーバーは時差が17時間です。バンクーバ">
+<meta property="og:updated_time" content="2016-12-22T18:17:00.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wordpressの投稿時間をクライアント時間で表示する方法">
-<meta name="twitter:description" content="Frog Advent Calendar 2016 21日目です。バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
-その日本とバンクーバーは時差が17時間です。バンクーバーが2">
+<meta name="twitter:description" content="Frog Advent Calendar 2016 21日目です。現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、英語は日本で勉強してきた方がいいです。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。
+その日本とバンクーバーは時差が17時間です。バンクーバ">
   
     <link rel="alternate" href="/atom.xml" title="SUGELOG" type="application/atom+xml">
   
@@ -128,7 +128,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://frogagent.com/event-post/frog-advent-calendar-2016/" target="_blank" rel="external">Frog Advent Calendar 2016</a> 21日目です。<br>バンクーバーで語学学校に通っています。<br>上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、<strong>英語は日本で勉強してきた方がいい</strong>です。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。</p>
+        <p><a href="https://frogagent.com/event-post/frog-advent-calendar-2016/" target="_blank" rel="external">Frog Advent Calendar 2016</a> 21日目です。<br>現在、バンクーバーで語学学校に通っています。上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、<strong>英語は日本で勉強してきた方がいい</strong>です。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。</p>
 <p>その日本とバンクーバーは時差が17時間です。バンクーバーが21日の午前9時だと、日本は22日の午前2時。つまり、バンクーバー時間で21日に書いた記事は、Wordpressの設定が東京になっていると22日として投稿されてしまう可能性があります。<br>そこで、Wordpressのタイムゾーンの設定や仕組みは検索すればたくさん出てくるので、今回は斜め下あたりからタイムゾーンを使ってみようと思います。</p>
 <p>Wordpressの記事は投稿時間を<strong>Wordpressで設定したタイムゾーンの時間</strong>と<strong>GMT時間</strong>の２つの値でデータベースに持っています。このGMT時間を利用して、記事が投稿された時間をクライアントのタイムゾーンに合わせて表示してみるという、需要がないかもしれないことをやってみようと思います！</p>
 <p>※<strong>この記事では、GMTとUTCの値は同じとして扱っています！</strong>定義があいまいですみません。<br><a id="more"></a> </p>
