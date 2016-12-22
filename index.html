@@ -97,6 +97,54 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-wordpress-timezone" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/wordpress-timezone/">Wordpressの投稿時間をクライアント時間で表示する方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/12/wordpress-timezone/" class="article-date">
+  <time datetime="2016-12-20T15:22:44.000Z" itemprop="datePublished">2016.12.21</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/technology/">technology</a>
+  </div>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://frogagent.com/event-post/frog-advent-calendar-2016/">Frog Advent Calendar 2016</a> 21日目です。<br>バンクーバーで語学学校に通っています。<br>上から目線でこれからバンクーバーに来る人にアドバイスするとすれば、<strong>英語は日本で勉強してきた方がいい</strong>です。少なくともTOEIC200点台で来ると、日本でできる文法や単語の勉強をバンクーバーでやることになるので、もったいなく感じています。</p>
+<p>その日本とバンクーバーは時差が17時間です。バンクーバーが21日の午前9時だと、日本は22日の午前2時。つまり、バンクーバー時間で21日に書いた記事は、Wordpressの設定が東京になっていると22日として投稿されてしまう可能性があります。<br>そこで、Wordpressのタイムゾーンの設定や仕組みは検索すればたくさん出てくるので、今回は斜め下あたりからタイムゾーンを使ってみようと思います。</p>
+<p>Wordpressの記事は投稿時間を<strong>Wordpressで設定したタイムゾーンの時間</strong>と<strong>GMT時間</strong>の２つの値でデータベースに持っています。このGMT時間を利用して、記事が投稿された時間をクライアントのタイムゾーンに合わせて表示してみるという、需要がないかもしれないことをやってみようと思います！</p>
+<p>※<strong>この記事では、GMTとUTCの値は同じとして扱っています！</strong>定義があいまいですみません。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/wordpress-timezone/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://suige.github.io/2016/12/wordpress-timezone/" data-id="cix06qr6v0004z4ndor6b7sdf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js-function" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -113,7 +161,7 @@ ga('send', 'pageview');
     
     <div class="article-meta">
       <a href="/2016/11/js-function/" class="article-date">
-  <time datetime="2016-11-14T23:24:31.000Z" itemprop="datePublished">2016.11.15</time>
+  <time datetime="2016-11-15T16:24:31.000Z" itemprop="datePublished">2016.11.16</time>
 </a>
       
   <div class="article-category">
@@ -132,7 +180,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://suige.github.io/2016/11/js-function/" data-id="civk8kums0001xondwt2e7zhy" class="article-share-link">Share</a>
+      <a data-url="https://suige.github.io/2016/11/js-function/" data-id="cix06qr6t0003z4ndey5jg1mg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -158,7 +206,7 @@ ga('send', 'pageview');
     
     <div class="article-meta">
       <a href="/2016/10/first-hexo/" class="article-date">
-  <time datetime="2016-10-26T02:18:09.000Z" itemprop="datePublished">2016.10.26</time>
+  <time datetime="2016-10-26T18:18:09.000Z" itemprop="datePublished">2016.10.27</time>
 </a>
       
   <div class="article-category">
@@ -168,8 +216,8 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JekyllからHexoに移行しました。<br>JekyllはRuby、HexoはNode.jsベースなのでEJSなど使慣れたテンプレートが使えるがいいですね。<br>デフォルトのデザインもきちんと作られていて、このブログもデフォルトのデザインを少しいじっているだけです。</p>
-<p>環境はWindowsでNode.jsのバージョンはv5.2.0です。<br>サーバのいらないGithubPagesにHexoという静的サイトジェネレータを使ってブログを公開する手順を記します。<br>
+        <p>JekyllからHexoに移行しました。<br>JekyllはRuby、HexoはNode.jsベースなのでRubyは知らないけどjsは知っている身としてはいざと言う時に編集しやすいかなと。あとEJS使ってる。<br>あとは、デフォルトのデザインもきちんと作られているのがいい！このブログもデフォルトのデザインを少しいじっているだけです。</p>
+<p>環境はWindowsでNode.jsのバージョンはv5.2.0です。<br>サーバのいらないGithubPagesにHexoという静的サイトジェネレータを使って作ったブログを公開する手順を記します。<br>
         
           <p class="article-more-link">
             <a href="/2016/10/first-hexo/#more">Read More</a>
@@ -178,7 +226,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://suige.github.io/2016/10/first-hexo/" data-id="civk8kum40000xondqc08pmkc" class="article-share-link">Share</a>
+      <a data-url="https://suige.github.io/2016/10/first-hexo/" data-id="cix06qr6o0001z4ndp10x0lzb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +260,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
     </div>
   </div>
 
@@ -223,6 +271,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/wordpress-timezone/">Wordpressの投稿時間をクライアント時間で表示する方法</a>
+          </li>
         
           <li>
             <a href="/2016/11/js-function/">奇妙なJavaScriptの関数入門</a>
@@ -244,10 +296,11 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 <a href="http://suige.plthh-project.com/" target="_blank">SUIGE</a>
+      &copy; 2016 <a href="http://suige.plthh-project.com/" target="_blank">SUIGE</a> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
+
     </div>
     <nav id="mobile-nav">
   
